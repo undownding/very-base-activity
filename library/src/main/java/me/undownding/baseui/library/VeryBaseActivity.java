@@ -7,6 +7,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import moe.feng.material.statusbar.TranslucentSBActivity;
 import moe.feng.material.statusbar.util.ViewHelper;
@@ -18,14 +19,14 @@ public class VeryBaseActivity extends TranslucentSBActivity{
 
     private boolean toolbarAutoHidden;
     private Toolbar toolbar;
-    private NestedScrollView content;
+    private FrameLayout content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_very_base);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        content = (NestedScrollView) findViewById(R.id.verybase_content);
+        content = (FrameLayout) findViewById(R.id.verybase_content);
 
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
             View view = findViewById(R.id.status_bar_view);
@@ -64,7 +65,7 @@ public class VeryBaseActivity extends TranslucentSBActivity{
     @Override
     public final void setContentView(View view) {
         setContentView(view, new NestedScrollView.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         );
     }
 

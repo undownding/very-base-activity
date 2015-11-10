@@ -16,13 +16,13 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView android:id="@+id/verybase_content"
+    <FrameLayout android:id="@+id/verybase_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="@style/baseui_container_style"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_scrollFlags="scroll|enterAlways" >
 
-    </android.support.v4.widget.NestedScrollView>
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

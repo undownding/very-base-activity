@@ -3,6 +3,8 @@ package me.undownding.baseui;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,11 +32,27 @@ public class MainActivity extends VeryBaseActivity {
                         .setAction("Action", null).show();
             }
         });*/
-        TextView tv = new TextView(this);
-        tv.setText("test");
-        ((ViewGroup) findViewById(R.id.verybase_content)).addView(tv);
 
-        tv.setHeight(5000);
+        RecyclerView recyclerView = (RecyclerView) getLayoutInflater().inflate(R.layout.view_recyclerview, null, false);
+        recyclerView.setAdapter(new RecyclerView.Adapter<Holder>() {
+            @Override
+            public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
+                return new Holder(new TextView(MainActivity.this));
+            }
+
+            @Override
+            public void onBindViewHolder(Holder holder, int position) {
+                holder.setText("Line " + (position + 1));
+            }
+
+            @Override
+            public int getItemCount() {
+                return 40;
+            }
+        });
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        setContentView(recyclerView);
     }
 
     @Override
@@ -57,5 +75,26 @@ public class MainActivity extends VeryBaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class Holder extends RecyclerView.ViewHolder {
+
+        private String text;
+        private TextView textView;
+
+        public Holder(TextView itemView) {
+            super(itemView);
+            textView = itemView;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+            textView.setText(text);
+            textView.setTextColor(getResources().getColor(android.R.color.black));
+        }
     }
 }
