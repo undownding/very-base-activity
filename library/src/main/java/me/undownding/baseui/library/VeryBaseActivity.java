@@ -28,7 +28,7 @@ public class VeryBaseActivity extends TranslucentSBActivity{
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         content = (FrameLayout) findViewById(R.id.verybase_content);
 
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             View view = findViewById(R.id.status_bar_view);
             if (ViewHelper.isChrome()) {
                 view.setVisibility(View.GONE);
