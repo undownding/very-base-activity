@@ -28,20 +28,11 @@
                 style="@style/baseui_toolbar_style"
                 app:layout_scrollFlags="scroll|enterAlways" />
 
-            <me.undownding.baseui.library.ShadowView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:background="@android:color/transparent"
-                style="@style/baseui_container_style"
-                app:layout_scrollFlags="scroll|enterAlways" />
-
         </android.support.design.widget.AppBarLayout>
 
         <FrameLayout android:id="@+id/verybase_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="-33px"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
         </FrameLayout>
