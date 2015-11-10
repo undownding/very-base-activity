@@ -30,15 +30,6 @@ public class MainActivity extends VeryBaseActivity {
                         .setAction("Action", null).show();
             }
         });*/
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
-            View view = findViewById(R.id.status_bar_view);
-            if (ViewHelper.isChrome()) {
-                view.setVisibility(View.GONE);
-            } else {
-                view.getLayoutParams().height = ViewHelper.getStatusBarHeight(this);
-                view.invalidate();
-            }
-        }
         TextView tv = new TextView(this);
         tv.setText("test");
         ((ViewGroup) findViewById(R.id.verybase_content)).addView(tv);
