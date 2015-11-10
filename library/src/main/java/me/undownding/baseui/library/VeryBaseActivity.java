@@ -3,8 +3,10 @@ package me.undownding.baseui.library;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 
 import moe.feng.material.statusbar.TranslucentSBActivity;
 import moe.feng.material.statusbar.util.ViewHelper;
@@ -16,12 +18,14 @@ public class VeryBaseActivity extends TranslucentSBActivity{
 
     private boolean toolbarAutoHidden;
     private Toolbar toolbar;
+    private NestedScrollView content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_very_base);
+        super.setContentView(R.layout.activity_very_base);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        content = (NestedScrollView) findViewById(R.id.verybase_content);
 
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
             View view = findViewById(R.id.status_bar_view);
@@ -49,5 +53,23 @@ public class VeryBaseActivity extends TranslucentSBActivity{
             params.setScrollFlags(0);
         }
         toolbar.invalidate();
+    }
+
+    @Override
+    public final void setContentView(int layoutResID) {
+        final View view = getLayoutInflater().inflate(layoutResID, content, false);
+        setContentView(view);
+    }
+
+    @Override
+    public final void setContentView(View view) {
+        setContentView(view, new NestedScrollView.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        );
+    }
+
+    @Override
+    public final void setContentView(View view, ViewGroup.LayoutParams params) {
+        content.addView(view, params);
     }
 }
