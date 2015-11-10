@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="baseui_container_style">
+    </style>
+
+    <style name="baseui_toolbar_style">
+        <item name="android:elevation">4dp</item>
+    </style>
+</resources>

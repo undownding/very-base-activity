@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="baseui_container_style">
+        <item name="android:foreground">@drawable/bottom_shadow</item>
+    </style>
+
+    <style name="baseui_toolbar_style">
+    </style>
+
+    <style name="Theme.BaseUI.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.BaseUI.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
