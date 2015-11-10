@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='me.undownding.baseui'
+group='com.github.undownding'
 
 android {
     compileSdkVersion 23
